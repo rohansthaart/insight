@@ -46,7 +46,7 @@ function LoginPage() {
       <h1>LOGIN PAGE</h1>
       <form>
         <input type="text" placeholder='Email' value={email} onChange={(e)=>setName(e.target.value)}/>
-        <input type="text" placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+        <input type="password" placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
         <button type='submit' onClick={buttonPress}>Login</button>
       </form>
     </div>

@@ -31,11 +31,16 @@ function Register() {
       <div className='center'>
         <h1>REGISTER PAGE</h1>
         <form>
-         <input type="text" placeholder="Enter Name" value={name} onChange={(e)=>setName(e.target.value)}/>
-          <input type="text" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-          <input type="text" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-          <input type="text" placeholder="Enter Phone Number" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
-          <input type="checkbox" value={isAdmin} onChange={(e)=>setIsAdmin(e.target.value)}/>
+          <label>Name: </label>
+         <input type="text" placeholder="Enter Name" value={name} onChange={(e)=>setName(e.target.value)}/><br/>
+          <label> Email: </label>
+          <input type="text" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}/><br/>
+          <label>Password: </label>
+          <input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
+          <label>Phone: </label>
+          <input type="text" placeholder="Enter Phone Number" value={phone} onChange={(e)=>setPhone(e.target.value)}/><br/>
+          <label>Is Admin: </label>
+          <input type="checkbox" value={isAdmin} onChange={(e)=>setIsAdmin(e.target.value)}/><br/>
           <button type='submit' onClick={buttonPress}>Register</button>
         </form>
       </div>
