@@ -2,14 +2,15 @@ import React ,{useState}from 'react'
 import {login} from '../utility/endpoints'
 import {useUserContext} from '../context/userContext'
 import {useNavigate } from 'react-router-dom'
-
+import {useSingleUserContext} from '../context/singleUserContext'
 
 function LoginPage() {
-
-  const {setIsLogin,setId,id,setIsAdmin} = useUserContext()
+  const {setIsUserLogin,setUser} = useSingleUserContext()
+  const {setIsLogin,setId,setIsAdmin} = useUserContext()
   const [email,setName] = useState('')
   const [password,setPassword]= useState('')
   const navigate = useNavigate()
+
   const buttonPress = (e)=>{
     e.preventDefault()
     fetch(login,{
@@ -20,12 +21,19 @@ function LoginPage() {
       body:JSON.stringify({email,password})
     }).then(res=>res.json()).then(result=>{
       if(result.status === 200){
-        setIsLogin(true)
+        
+        
         setId(result.id)
         setIsAdmin(result.isAdmin)
-        if(result.isAdmin)navigate("/userlist")
-        else navigate("/singleuser")
-        
+        if(result.isAdmin){
+          setIsLogin(true)
+          navigate("/userlist")
+        }
+        else {
+          setIsUserLogin(true)
+          setUser(result.user)
+          navigate("/singleuser")
+        }
       }
     }).catch(err=>console.log(err))
     setName('')

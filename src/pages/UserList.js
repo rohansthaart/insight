@@ -8,8 +8,6 @@ import axios from 'axios'
 
 function UserList() {
   const {users,isLoading,isLogin,fetchUsers,setEditUser,editUser} = useUserContext()
-  
-
     const deleteUser = async (id)=>{
       try{
        await axios.delete(`api/v1/user/delete/${id}`)
@@ -61,7 +59,6 @@ if(isLogin){
         <td>
             {name}
         </td> 
-        
         <td>
             {email}
         </td> 

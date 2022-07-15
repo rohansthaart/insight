@@ -3,8 +3,16 @@ import React,{useState} from 'react'
 import { useUserContext } from '../context/userContext'
 function EditForm() {
    
-    const {editUser,fetchUsers,setEditUser,isAdmin,id,fetchSingleUser,setIsEdited} = useUserContext()
-    console.log(editUser._id);
+    const {
+            editUser,
+            fetchUsers,
+            setEditUser,
+            isAdmin,id,
+            fetchSingleUser,
+            setIsEdited
+        } = useUserContext()
+
+
     const [name,setName] = useState(editUser.name)
     const [email,setEmail] = useState(editUser.email)
     const [phone,setPhone] = useState(editUser.phone)
@@ -16,7 +24,7 @@ function EditForm() {
             setEditUser()
             setIsEdited(true)
         }catch(error){  
-
+            console.log(error);
         }
     }
   return (
